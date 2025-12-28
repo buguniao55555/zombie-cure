@@ -92,26 +92,26 @@ function onItemUse()
     end
 end
 
-function Itemcool2()
-local inv2 = getPlayer():getInventory();
-local player2 = getPlayer();
+-- function Itemcool2()
+-- local inv2 = getPlayer():getInventory();
+-- local player2 = getPlayer();
 
-it2 = inv2:FindAndReturn("MC.AVopen");
-    if it2 then
-		if ZombRand( 1000 ) <= 5 then
-		player2:getInventory():AddItem(instanceItem("Base.Cigarettes"));
+-- it2 = inv2:FindAndReturn("ZombieCure.AVopen");
+--     if it2 then
+-- 		if ZombRand( 1000 ) <= 5 then
+-- 		player2:getInventory():AddItem(instanceItem("Base.Cigarettes"));
 			
-		getPlayer():Say("I found something");	
-		inv2:Remove("AVopen"); -- Se remueve el item sin MC.
+-- 		getPlayer():Say("I found something");	
+-- 		inv2:Remove("AVopen"); -- Se remueve el item sin ZombieCure.
 		
-		elseif ZombRand( 10 ) <= 11 then --SIEMPRE
-		getPlayer():Say("Useless Junk");	
-		inv2:Remove("AVopen"); -- Se remueve el item sin MC.	
-		end
-	end
+-- 		elseif ZombRand( 10 ) <= 11 then --SIEMPRE
+-- 		getPlayer():Say("Useless Junk");	
+-- 		inv2:Remove("AVopen"); -- Se remueve el item sin ZombieCure.	
+-- 		end
+-- 	end
 	
 
-end
+-- end
 
 
 local function ZombDropextra(zombie)
@@ -122,20 +122,20 @@ local player2 = getPlayer();
 		zombie:getInventory():AddItem("Antibiotics")
 		--getPlayer():Say("6");
 		elseif (ZombRand(5) == 4) then  -- selecciona un numero al azar entre 0 y 4.
-		zombie:getInventory():AddItem("MC.AV1")
+		zombie:getInventory():AddItem("ZombieCure.ZombieCureMed1")
 		--getPlayer():Say("5");
 		elseif (ZombRand(4) == 3) then  -- selecciona un numero al azar entre 0 y 3.
 		--getPlayer():Say("4");
-		zombie:getInventory():AddItem("MC.AV2") 
+		zombie:getInventory():AddItem("ZombieCure.ZombieCureMed2") 
 		elseif (ZombRand(3) == 2) then  -- selecciona un numero al azar entre 0 y 2.
 		--getPlayer():Say("3");
-		zombie:getInventory():AddItem("MC.AV3")
+		zombie:getInventory():AddItem("ZombieCure.ZombieCureMed3")
 		elseif (ZombRand(2) == 1) then  -- selecciona un numero al azar entre 0 y 1.
 		--getPlayer():Say("2");
-		zombie:getInventory():AddItem("MC.AV4")
+		zombie:getInventory():AddItem("ZombieCure.ZombieCureMed4")
 		elseif (0 == 0) then  -- Siempre que 0 sea igual a 0.
 		--getPlayer():Say("1");
-		zombie:getInventory():AddItem("MC.AV5")
+		zombie:getInventory():AddItem("ZombieCure.ZombieCureMed5")
 		end
 	end
 	
@@ -152,7 +152,7 @@ local function doCuraMenu(player, context, items)
     end
 
     if item:getType() == "ZombieCureAntidote" then
-        context:addOption("Try to cure infection...", item, onItemUse, player)
+        context:addOption(getText("ContextMenu_ZombieCure_TryCure"), item, onItemUse, player)
     end
 end
 
