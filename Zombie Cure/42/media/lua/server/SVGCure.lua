@@ -7,201 +7,7 @@
 --MAX, Neck, Torso_Lower, Torso_Upper, UpperArm_L, UpperArm_R, UpperLeg_L, UpperLeg_R 
 -- This part is not implemented yet.
 
-function healBodyPart(bodyPart, player, BD)
---se entra aca por cada parte del cuerpo.
-	
-	--Body part es una parte del cuerpo tipo Leg_5
-	--bodyPart:SetScratched(bodyPart,true); ERROR
-	--bodyPart:SetScratched(bodyPart:get(i),true); ERROR
-	--local BP;
-	--BP = player:getBodyDamage():getBodyPart(BodyPartType.bodyPart);
-	--BPD:generateDeepWound();
-	--bodyPart:generateDeepWound();
-	--if (BD:IsBitten() == true) then  --bodypart deberia ser... OJO
-	
-	--Body Parts List --> Foot_L, Foot_R, ForeArm_L, ForeArm_R, Groin, Hand_L, Hand_R, Head, LowerLeg_L, LowerLeg_R, 
-	--MAX, Neck, Torso_Lower, Torso_Upper, UpperArm_L, UpperArm_R, UpperLeg_L, UpperLeg_R 
-
-	
-	--getBiteTime
-	if (player:getBodyDamage():getBodyPart(BodyPartType.UpperLeg_L ):bitten() == true) then
-	local BP;
-	BP = player:getBodyDamage():getBodyPart(BodyPartType.UpperLeg_L );
-	--AA2 = player:getBodyDamage():getBodyPart(BodyPartType.UpperLeg_L):getBiteTime();
-	
-	BP:RestoreToFullHealth();
-
-	end
-	
-	if (player:getBodyDamage():getBodyPart(BodyPartType.UpperLeg_R ):bitten() == true) then
-	local BP;
-	BP = player:getBodyDamage():getBodyPart(BodyPartType.UpperLeg_R );
-	BP:RestoreToFullHealth();
-
-	end	
-
-	if (player:getBodyDamage():getBodyPart(BodyPartType.UpperArm_L):bitten() == true) then
-	local BP;
-		BP = player:getBodyDamage():getBodyPart(BodyPartType.UpperArm_L);
-	BP:RestoreToFullHealth();
-
-	end
-
-	if (player:getBodyDamage():getBodyPart(BodyPartType.UpperArm_R):bitten() == true) then
-	local BP;
-	BP = player:getBodyDamage():getBodyPart(BodyPartType.UpperArm_R);
-	BP:RestoreToFullHealth();
-
-	end
-
-	if (player:getBodyDamage():getBodyPart(BodyPartType.Torso_Lower):bitten() == true) then
-	local BP;
-	BP = player:getBodyDamage():getBodyPart(BodyPartType.Torso_Lower);
-	BP:RestoreToFullHealth();
-		
-
-	end
-	
-	
-	if (player:getBodyDamage():getBodyPart(BodyPartType.Torso_Upper):bitten() == true) then
-	local BP;
-	BP = player:getBodyDamage():getBodyPart(BodyPartType.Torso_Upper);
-	BP:RestoreToFullHealth();
-
-	end
-
-
-	if (player:getBodyDamage():getBodyPart(BodyPartType.Neck):bitten() == true) then
-	local BP;
-	BP = player:getBodyDamage():getBodyPart(BodyPartType.Neck);
-	BP:RestoreToFullHealth();
-
-	end
-
-
-	--if (player:getBodyDamage():getBodyPart(BodyPartType.MAX):bitten() == true) then
-	--local BP;
-	--BP = player:getBodyDamage():getBodyPart(BodyPartType.MAX);
-	--BP:generateDeepWound();
-	--end
-
-	if (player:getBodyDamage():getBodyPart(BodyPartType.Groin):bitten() == true) then
-	local BP;
-	BP = player:getBodyDamage():getBodyPart(BodyPartType.Groin);
-	BP:RestoreToFullHealth();
-	
-	end
-
-	if (player:getBodyDamage():getBodyPart(BodyPartType.Head):bitten() == true) then
-	local BP;
-	BP = player:getBodyDamage():getBodyPart(BodyPartType.Head);
-	BP:RestoreToFullHealth();
-	
-	end
-	
-	if (player:getBodyDamage():getBodyPart(BodyPartType.Hand_L):bitten() == true) then
-	local BP;
-	BP = player:getBodyDamage():getBodyPart(BodyPartType.Hand_L);
-	BP:RestoreToFullHealth();
-		
-	end
-
-	if (player:getBodyDamage():getBodyPart(BodyPartType.Hand_R):bitten() == true) then
-	local BP;
-	BP = player:getBodyDamage():getBodyPart(BodyPartType.Hand_R);
-	BP:RestoreToFullHealth();
-		
-	end	
-	
-	if (player:getBodyDamage():getBodyPart(BodyPartType.ForeArm_L):bitten() == true) then
-	local BP;
-	BP = player:getBodyDamage():getBodyPart(BodyPartType.ForeArm_L);
-	BP:RestoreToFullHealth();
-	
-	end
-	
-	if (player:getBodyDamage():getBodyPart(BodyPartType.ForeArm_R):bitten() == true) then
-	local BP;
-	BP = player:getBodyDamage():getBodyPart(BodyPartType.ForeArm_R);
-	BP:RestoreToFullHealth();
-
-	end
-
-	if (player:getBodyDamage():getBodyPart(BodyPartType.Foot_L):bitten() == true) then
-	local BP;
-	BP = player:getBodyDamage():getBodyPart(BodyPartType.Foot_L);
-	BP:RestoreToFullHealth();
-
-	end
-	
-	if (player:getBodyDamage():getBodyPart(BodyPartType.Foot_R):bitten() == true) then
-	local BP;
-	BP = player:getBodyDamage():getBodyPart(BodyPartType.Foot_R);
-	BP:RestoreToFullHealth();
-
-	end
-
-	if (player:getBodyDamage():getBodyPart(BodyPartType.LowerLeg_L):bitten() == true) then
-	local BP;
-	BP = player:getBodyDamage():getBodyPart(BodyPartType.LowerLeg_L);
-	BP:RestoreToFullHealth();
-
-	end
-	
-	if (player:getBodyDamage():getBodyPart(BodyPartType.LowerLeg_R):bitten() == true or player:getBodyDamage():getBodyPart(BodyPartType.LowerLeg_R):IsInfected() == true ) then
-	local BP;
-	BP = player:getBodyDamage():getBodyPart(BodyPartType.LowerLeg_R);
-	BP:RestoreToFullHealth();
-	BD:setInf(false);
-	end
-	
-	
-	
-	
-	
-	
-	--	BP = player:getBodyDamage():getBodyPart(BodyPartType.LowerLeg_L);
-	--	BP:generateDeepWound();
-	--	BP = player:getBodyDamage():getBodyPart(BodyPartType.LowerLeg_R);
-	--	BP:generateDeepWound();
-	
-		--local BP;
-		--BP = player:getBodyDamage():getBodyPart(BD:get(i);
-		--BP:generateDeepWound();
-		--bodyPart():generateDeepWound();
-	--BD:SetScratched(bodyPart,true);
-	--BD:SetBleeding(bodyPart,false);
-	--BD:SetBleeding(bodyPart,false);
-	
-	--BD:SetScratched(true);
-	--BD:SetScratched(bodyPart,true);
-	--BD:SetScratched(true);
-	--SetBleeding
-	--endjj
-	
-	    --BD:scratched() = true; 			NO FUNCA
-		--BD:scratched(true); 				NO FUNCA
-		--BD:scratched(bodyPart,true) 		NO FUNCA
-		--BD:SetScratched(bodyPart,true);   NO FUNCA
-		--BD:SetScratched(bodyPart:get(i),true); NO FUNCA
-		--BD:SetScratched(true); 				--NO FUNCA
-		--BD:SetScratched(bodyPart,true) 	--	NO FUNCA
-		bodyPart:SetInfected(false);
-		bodyPart:setInfectedWound(false);
-		bodyPart:SetFakeInfected(false);
-		bodyPart:setWoundInfectionLevel(0);	
-		BD:setInf(false); --remueve infeccion virus
-		BD:setInfectionLevel(0);
-		BD:setInfectionGrowthRate(0);	
-		BD:setFakeInfectionLevel(0);
-		
-	--bodyPart:RestoreToFullHealth();
-
-	
-end
-
-
-local function onItemUse()
+function onItemUse()
     local player = getPlayer()
     local stats = player:getStats()
     local nutrition = player:getNutrition()
@@ -211,8 +17,10 @@ local function onItemUse()
     local panic = stats:get(CharacterStat.PANIC)
     local weight = nutrition:getWeight()
 
-    -- ISTimedActionQueue.add(ISInventoryTransferAction:new(playerObj, item, item:getContainer(), playerObj:getInventory()))
-    -- ISTimedActionQueue.add(ISConsumeGenericAction:new(playerObj, item, 100))
+	-- ISTimedActionQueue.add(ISInventoryTransferAction:new(playerObj, item, item:getContainer(), playerObj:getInventory()))
+	-- ISTimedActionQueue.add(ISConsumeGenericAction:new(playerObj, item, 100))
+
+	player:getInventory():Remove("ZombieCureAntidote")
 
     if drunk < 20 then
         -- Handle weight-based logic
@@ -242,21 +50,21 @@ local function onItemUse()
         stats:add(CharacterStat.INTOXICATION, 100);
         stats:set(CharacterStat.ENDURANCE, endurance - 0.55) -- Lungs
 
-        -- 哮喘情况下触发流血效果
-        -- In case of Asthmatic trait, trigger bleeding effect
-        if player.getCharacterTraits():get(CharacterTrait.ASTHMATIC) and ZombRand(100) <= 33 then
+		-- 哮喘情况下触发流血效果
+		-- In case of Asthmatic trait, trigger bleeding effect
+        if player:getCharacterTraits():get(CharacterTrait.ASTHMATIC) and ZombRand(100) <= 33 then
             bodyDamage:ReduceGeneralHealth(80) -- Take damage
             player:Say(getText("IGUI_ZombieCure_Say_BloodNose"))
             stats:set(CharacterStat.ENDURANCE, endurance - 0.25)
         end
 
-        local hasBraveTrait = player.getCharacterTraits():get(CharacterTrait.DESENSITIZED) or not player.getCharacterTraits():get(CharacterTrait.BRAVE)
+		local hasBraveTrait = player:getCharacterTraits():get(CharacterTrait.DESENSITIZED) or player:getCharacterTraits():get(CharacterTrait.BRAVE)
         if hasBraveTrait then
-            stats:set(CharacterStat.PANIC, panic + 120) -- Panic
-            stats:set(CharacterStat.BOREDOM, -25)
+			stats:set(CharacterStat.PANIC, panic + 120.0) -- Panic
+			stats:set(CharacterStat.BOREDOM, -25)
         end
 
-        if not player.getCharacterTraits():get(CharacterTrait.IRON_GUT) then 
+        if not player:getCharacterTraits():get(CharacterTrait.IRON_GUT) then 
             stats:set(CharacterStat.HUNGER, 50)
             player:Say(getText("IGUI_ZombieCure_Say_StomachHurts"))
         end
@@ -272,8 +80,8 @@ local function onItemUse()
             player:Say(getText("IGUI_ZombieCure_Say_PainAgony"))
         elseif ZombRand(34) <= 33 then
             player:Say(getText("IGUI_ZombieCure_Say_DeafError"))
-            if not player.getCharacterTraits():get(CharacterTrait.DEAF) then
-                player.getCharacterTraits():set(CharacterTrait.DEAF, true)
+            if not player:getCharacterTraits():get(CharacterTrait.DEAF) then
+                player:getCharacterTraits():set(CharacterTrait.DEAF, true)
             end
         else -- ALWAYS executes if previous conditions fail
             nutrition:setWeight(weight - 1)
