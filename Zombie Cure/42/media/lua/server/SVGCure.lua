@@ -15,8 +15,6 @@ function onItemUse()
     local panic = stats:get(CharacterStat.PANIC)
     local weight = nutrition:getWeight()
 
-	-- ISTimedActionQueue.add(ISInventoryTransferAction:new(playerObj, item, item:getContainer(), playerObj:getInventory()))
-	-- ISTimedActionQueue.add(ISConsumeGenericAction:new(playerObj, item, 100))
 
 	player:getInventory():Remove("ZombieCureAntidote")
 
@@ -94,23 +92,23 @@ end
 local function ZombDropextra(zombie)
 local player2 = getPlayer();
 
-    if (ZombRand(1000) <= 5) then  -- selecciona un numero del 0 al 999 (contando el 0 y el 999)
-        if (ZombRand(6) == 5) then  -- selecciona un numero al azar entre 0 y 4.
+    if (ZombRand(1000) <= 5) then
+        if (ZombRand(6) == 5) then
         zombie:getInventory():AddItem("Antibiotics")
         --getPlayer():Say("6");
-        elseif (ZombRand(5) == 4) then  -- selecciona un numero al azar entre 0 y 4.
+        elseif (ZombRand(5) == 4) then
         zombie:getInventory():AddItem("ZombieCure.ZombieCureMed1")
         --getPlayer():Say("5");
-        elseif (ZombRand(4) == 3) then  -- selecciona un numero al azar entre 0 y 3.
+        elseif (ZombRand(4) == 3) then
         --getPlayer():Say("4");
         zombie:getInventory():AddItem("ZombieCure.ZombieCureMed2") 
-        elseif (ZombRand(3) == 2) then  -- selecciona un numero al azar entre 0 y 2.
+        elseif (ZombRand(3) == 2) then
         --getPlayer():Say("3");
         zombie:getInventory():AddItem("ZombieCure.ZombieCureMed3")
-        elseif (ZombRand(2) == 1) then  -- selecciona un numero al azar entre 0 y 1.
+        elseif (ZombRand(2) == 1) then
         --getPlayer():Say("2");
         zombie:getInventory():AddItem("ZombieCure.ZombieCureMed4")
-        elseif (0 == 0) then  -- Siempre que 0 sea igual a 0.
+        elseif (0 == 0) then
         --getPlayer():Say("1");
         zombie:getInventory():AddItem("ZombieCure.ZombieCureMed5")
         end
