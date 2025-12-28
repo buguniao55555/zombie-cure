@@ -1,11 +1,9 @@
 -- Thanks for use this mod. 
--- Zombie Cure Medical cocktail By Erdato
+-- Zombie Cure Medical cocktail By Buguniao & Eazybot
+-- Original mod by Erdato
 -- Also thanks to Nolan Ritchie. i took some lines from one of his code.
 
 
---Body Parts List --> Foot_L, Foot_R, ForeArm_L, ForeArm_R, Groin, Hand_L, Hand_R, Head, LowerLeg_L, LowerLeg_R, 
---MAX, Neck, Torso_Lower, Torso_Upper, UpperArm_L, UpperArm_R, UpperLeg_L, UpperLeg_R 
--- This part is not implemented yet.
 
 function onItemUse()
     local player = getPlayer()
@@ -91,27 +89,6 @@ function onItemUse()
         end
     end
 end
-
--- function Itemcool2()
--- local inv2 = getPlayer():getInventory();
--- local player2 = getPlayer();
-
--- it2 = inv2:FindAndReturn("ZombieCure.AVopen");
---     if it2 then
---      if ZombRand( 1000 ) <= 5 then
---      player2:getInventory():AddItem(instanceItem("Base.Cigarettes"));
-            
---      getPlayer():Say("I found something");   
---      inv2:Remove("AVopen"); -- Se remueve el item sin ZombieCure.
-        
---      elseif ZombRand( 10 ) <= 11 then --SIEMPRE
---      getPlayer():Say("Useless Junk");    
---      inv2:Remove("AVopen"); -- Se remueve el item sin ZombieCure.     
---      end
---  end
-    
-
--- end
 
 
 local function ZombDropextra(zombie)
