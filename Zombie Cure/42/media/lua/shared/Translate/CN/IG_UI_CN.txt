@@ -1,0 +1,13 @@
+IGUI_CN = {
+    IGUI_ZombieCure_Say_NeedSurvive = "我必须活下去。",
+    IGUI_ZombieCure_Say_BodyWeakReally = "我的身体感觉极度虚弱。",
+    IGUI_ZombieCure_Say_BodyWeak = "我的身体感觉虚弱。",
+    IGUI_ZombieCure_Say_BodyWeakDots = "我的身体感觉虚弱...",
+    IGUI_ZombieCure_Say_BodyResists = "幸运的是，我的身体扛住了。",
+    IGUI_ZombieCure_Say_CantBreathe = "我无法呼吸了...",
+    IGUI_ZombieCure_Say_BloodNose = "似乎有点流鼻血。",
+    IGUI_ZombieCure_Say_StomachHurts = "我的胃好痛。",
+    IGUI_ZombieCure_Say_AlcoholBad = "解药和酒精并不兼容...",
+    IGUI_ZombieCure_Say_PainAgony = "痛苦与折磨...",
+    IGUI_ZombieCure_Say_DeafError = "我听不见任何声音了，一定是什么地方出了大问题。",
+}

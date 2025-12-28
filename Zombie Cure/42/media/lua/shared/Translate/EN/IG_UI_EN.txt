@@ -1,0 +1,13 @@
+IGUI_EN = {
+    IGUI_ZombieCure_Say_NeedSurvive = "I need to survive",
+    IGUI_ZombieCure_Say_BodyWeakReally = "My body feel really weak",
+    IGUI_ZombieCure_Say_BodyWeak = "My body feel weak",
+    IGUI_ZombieCure_Say_BodyWeakDots = "My body feel weak...",
+    IGUI_ZombieCure_Say_BodyResists = "My body resists luckily.",
+    IGUI_ZombieCure_Say_CantBreathe = "I can't breathe.",
+    IGUI_ZombieCure_Say_BloodNose = "I feel blood in my nose.",
+    IGUI_ZombieCure_Say_StomachHurts = "My stomach hurts.",
+    IGUI_ZombieCure_Say_AlcoholBad = "medicine and Alcohol doesn't get along...",
+    IGUI_ZombieCure_Say_PainAgony = "Pain and agony...",
+    IGUI_ZombieCure_Say_DeafError = "i cant hear anything,something was totally wrong...",
+}
