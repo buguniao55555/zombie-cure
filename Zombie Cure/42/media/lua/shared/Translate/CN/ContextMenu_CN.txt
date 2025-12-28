@@ -1,0 +1,4 @@
+ContextMenu_CN = 
+{
+    ContextMenu_ZombieCure_TryCure = "尝试治愈感染",
+}

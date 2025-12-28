@@ -343,7 +343,7 @@ local function doCuraMenu(player, context, items)
     end
 
     if item:getType() == "ZombieCureAntidote" then
-        context:addOption("Try to cure infection...", item, onItemUse, player)
+        context:addOption(getText("ContextMenu_ZombieCure_TryCure"), item, onItemUse, player)
     end
 end
 
