@@ -15,7 +15,7 @@ module ZombieCure
     {
         Weight          = 0.02,
         ThirstChange    = 10,
-        DisplayName     = Tesnofovir,
+        DisplayName     = Tenofovir,
         Icon            = SVGTenofovir,
         ItemType        = Normal, 
         DisplayCategory = FirstAid,
@@ -25,7 +25,7 @@ module ZombieCure
     {
         Weight          = 0.02,
         ThirstChange    = 10,
-        DisplayName     = Acicklovir,
+        DisplayName     = Aciclovir,
         Icon            = SVGAciclovir,
         ItemType        = Normal,     
         DisplayCategory = FirstAid,
@@ -35,7 +35,7 @@ module ZombieCure
     {
         Weight          = 0.02,
         ThirstChange    = 10,
-        DisplayName     = Zanackmivir,
+        DisplayName     = Zanamivir,
         Icon            = SVGZanamivir,
         ItemType        = Normal, 
         DisplayCategory = FirstAid,
@@ -45,8 +45,8 @@ module ZombieCure
     {
         Weight          = 0.02,
         ThirstChange    = 10,
-        DisplayName     = Oseltomivir,
-        Icon            = SVGOseltomivir,
+        DisplayName     = Oseltamivir,
+        Icon            = SVGOseltamivir,
         ItemType        = Normal, 
         DisplayCategory = FirstAid,
     }       
@@ -55,8 +55,8 @@ module ZombieCure
     {
         Weight          = 0.02,
         ThirstChange    = 10,
-        DisplayName     = Zidovadina,
-        Icon            = SVGZidovadina,
+        DisplayName     = Zidovudine,
+        Icon            = SVGZidovudine,
         ItemType        = Normal, 
         DisplayCategory = FirstAid,
     }

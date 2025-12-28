@@ -1,0 +1,10 @@
+ItemName_CN =
+{
+    ItemName_ZombieCure.ZombieCureAntidote = "医疗鸡尾酒解毒剂",
+    
+    ItemName_ZombieCure.ZombieCureMed1 = "替诺福韦",
+    ItemName_ZombieCure.ZombieCureMed2 = "阿昔洛韦",
+    ItemName_ZombieCure.ZombieCureMed3 = "扎那米韦",
+    ItemName_ZombieCure.ZombieCureMed4 = "奥司他韦",
+    ItemName_ZombieCure.ZombieCureMed5 = "齐多夫定",
+}

@@ -1,0 +1,4 @@
+IGUI_CN = 
+{
+    IGUI_CraftCategory_Health = "医疗",
+}

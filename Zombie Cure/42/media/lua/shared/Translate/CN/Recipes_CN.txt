@@ -1,0 +1,6 @@
+Recipes_CN = 
+{
+    Recipe_Craft_Medical_Cocktail_Type_A = "制作医疗鸡尾酒-方案A",
+    Recipe_Craft_Medical_Cocktail_Type_B = "制作医疗鸡尾酒-方案B",
+    Recipe_Craft_Medical_Cocktail_Type_C = "制作医疗鸡尾酒-方案C",
+}

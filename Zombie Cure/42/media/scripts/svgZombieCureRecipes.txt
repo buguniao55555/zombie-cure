@@ -5,7 +5,7 @@ module ZombieCure
         Base
     }
 
-    craftRecipe Craft and Drink Medical Cocktail (A)
+    craftRecipe Craft Medical Cocktail Type A
     {
         timedAction     = MixingBowl,
         time            = 40,
@@ -28,7 +28,7 @@ module ZombieCure
         }
     }
 
-    craftRecipe Craft and Drink Medical Cocktail (B)
+    craftRecipe Craft Medical Cocktail Type B
     {
         timedAction     = MixingBowl,
         time            = 40,
@@ -49,7 +49,7 @@ module ZombieCure
         }
     }
 
-    craftRecipe Craft and Drink Medical Cocktail (C)
+    craftRecipe Craft Medical Cocktail Type C
     {
         timedAction     = MixingBowl,
         time            = 400,

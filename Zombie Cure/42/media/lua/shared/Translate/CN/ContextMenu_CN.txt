@@ -1,0 +1,3 @@
+ContextMenu_PL = {
+	ContextMenu_Break_Ampule = "Rozbij ampułkę",
+}
