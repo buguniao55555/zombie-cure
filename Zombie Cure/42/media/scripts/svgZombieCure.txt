@@ -1,62 +1,64 @@
-module MC
+module ZombieCure
 {
-    item Cura
+    /* Cure, should be consumed right after crafted */
+    item ZombieCureAntidote
     {
         Weight          = 0.01,
         DisplayName     = Medical Cocktail,
         Icon            = SVGCure,
         ItemType        = Normal,
-        DisplayCategory = Medical,
+        DisplayCategory = FirstAid,
     }
     
-    item AV1
+    /* All following items are medicines for crafting the cure */
+    item ZombieCureMed1
     {
         Weight          = 0.02,
         ThirstChange    = 10,
         DisplayName     = Tesnofovir,
         Icon            = SVGTenofovir,
         ItemType        = Normal, 
-        DisplayCategory = Medical,
+        DisplayCategory = FirstAid,
     }
 
-    item AV2
+    item ZombieCureMed2
     {
         Weight          = 0.02,
         ThirstChange    = 10,
         DisplayName     = Acicklovir,
         Icon            = SVGAciclovir,
         ItemType        = Normal,     
-        DisplayCategory = Medical,
+        DisplayCategory = FirstAid,
     }   
 
-    item AV3
+    item ZombieCureMed3
     {
         Weight          = 0.02,
         ThirstChange    = 10,
         DisplayName     = Zanackmivir,
         Icon            = SVGZanamivir,
         ItemType        = Normal, 
-        DisplayCategory = Medical,
+        DisplayCategory = FirstAid,
     }       
 
-    item AV4
+    item ZombieCureMed4
     {
         Weight          = 0.02,
         ThirstChange    = 10,
         DisplayName     = Oseltomivir,
         Icon            = SVGOseltomivir,
         ItemType        = Normal, 
-        DisplayCategory = Medical,
+        DisplayCategory = FirstAid,
     }       
 
-    item AV5
+    item ZombieCureMed5
     {
         Weight          = 0.02,
         ThirstChange    = 10,
         DisplayName     = Zidovadina,
         Icon            = SVGZidovadina,
         ItemType        = Normal, 
-        DisplayCategory = Medical,
-    }       
+        DisplayCategory = FirstAid,
+    }
     
 }
