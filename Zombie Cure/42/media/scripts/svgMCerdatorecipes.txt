@@ -1,0 +1,71 @@
+module MC
+{
+    imports
+    {
+        Base
+    }
+
+    craftRecipe Craft and Drink Medical Cocktail (A)
+    {
+        timedAction     = MixingBowl,
+        time            = 40,
+        category        = Health,
+        Tags            = InHandCraft;Health,
+        
+        inputs
+        {
+            item 1 [*], 
+            -fluid 0.1 [Water],
+            item 1 [MC.AV1] mode:destroy flags[ItemCount],
+            item 1 [MC.AV2] mode:destroy flags[ItemCount],
+            item 1 [MC.AV3] mode:destroy flags[ItemCount],
+            item 1 [MC.AV4] mode:destroy flags[ItemCount],
+            item 1 [MC.AV5] mode:destroy flags[ItemCount],
+        }
+        outputs
+        {
+            item 1 MC.Cura,
+        }
+    }
+
+    craftRecipe Craft and Drink Medical Cocktail (B)
+    {
+        timedAction     = MixingBowl,
+        time            = 40,
+        category        = Health,
+        Tags            = InHandCraft;Health,
+
+        inputs
+        {
+            item 1 [*], 
+            -fluid 0.1 [Water],
+            item 1 [MC.AV1;MC.AV2;MC.AV3] mode:destroy flags[ItemCount],
+            item 1 [MC.AV4;MC.AV5] mode:destroy flags[ItemCount],
+            item 6 [Base.Antibiotics] mode:destroy flags[ItemCount], 
+        }
+        outputs
+        {
+            item 1 MC.Cura,
+        }
+    }
+
+    craftRecipe Craft and Drink Medical Cocktail (C)
+    {
+        timedAction     = MixingBowl,
+        time            = 400,
+        category        = Health,
+        Tags            = InHandCraft;Health,
+
+        inputs
+        {
+            item 1 [*], 
+            -fluid 0.1 [Water],            
+            item 10 [Base.Antibiotics] mode:destroy flags[ItemCount], 
+        }
+        outputs
+        {
+            item 1 MC.Cura,
+        }
+    }
+    
+}

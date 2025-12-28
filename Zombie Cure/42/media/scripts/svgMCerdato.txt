@@ -1,0 +1,62 @@
+module MC
+{
+    item Cura
+    {
+        Weight          = 0.01,
+        DisplayName     = Medical Cocktail,
+        Icon            = SVGCure,
+        ItemType        = Normal,
+        DisplayCategory = Medical,
+    }
+    
+    item AV1
+    {
+        Weight          = 0.02,
+        ThirstChange    = 10,
+        DisplayName     = Tesnofovir,
+        Icon            = SVGTenofovir,
+        ItemType        = Normal, 
+        DisplayCategory = Medical,
+    }
+
+    item AV2
+    {
+        Weight          = 0.02,
+        ThirstChange    = 10,
+        DisplayName     = Acicklovir,
+        Icon            = SVGAciclovir,
+        ItemType        = Normal,     
+        DisplayCategory = Medical,
+    }   
+
+    item AV3
+    {
+        Weight          = 0.02,
+        ThirstChange    = 10,
+        DisplayName     = Zanackmivir,
+        Icon            = SVGZanamivir,
+        ItemType        = Normal, 
+        DisplayCategory = Medical,
+    }       
+
+    item AV4
+    {
+        Weight          = 0.02,
+        ThirstChange    = 10,
+        DisplayName     = Oseltomivir,
+        Icon            = SVGOseltomivir,
+        ItemType        = Normal, 
+        DisplayCategory = Medical,
+    }       
+
+    item AV5
+    {
+        Weight          = 0.02,
+        ThirstChange    = 10,
+        DisplayName     = Zidovadina,
+        Icon            = SVGZidovadina,
+        ItemType        = Normal, 
+        DisplayCategory = Medical,
+    }       
+    
+}
