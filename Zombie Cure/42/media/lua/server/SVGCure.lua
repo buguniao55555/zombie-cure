@@ -200,187 +200,87 @@ function healBodyPart(bodyPart, player, BD)
 	
 end
 
-function Itemcool()
+function onItemUse()
+    local player = getPlayer()
+    local stats = player:getStats()
+    local nutrition = player:getNutrition()
+    local bodyDamage = player:getBodyDamage()
+    local drunk = stats:get(CharacterStat.INTOXICATION)
+	local endurance = stats:get(CharacterStat.ENDURANCE)
+	local panic = stats:get(CharacterStat.PANIC)
+    local weight = nutrition:getWeight()
 
+	-- ISTimedActionQueue.add(ISInventoryTransferAction:new(playerObj, item, item:getContainer(), playerObj:getInventory()))
+	-- ISTimedActionQueue.add(ISConsumeGenericAction:new(playerObj, item, 100))
 
-local inv = getPlayer():getInventory();
-local player = getPlayer();
-local stats = player:getStats();
-local borracho = getPlayer():getStats():get(CharacterStat.INTOXICATION)
-local pwg = getPlayer():getNutrition():getWeight();
+    if drunk < 20 then
+        -- Handle weight-based logic
+        if weight >= 100 then
+            player:Say("I need survive")
+            nutrition:setWeight(weight - 19) -- 19kg weight loss.
+        elseif weight >= 80 then
+            player:Say("My body feel really weak")
+            nutrition:setWeight(weight - 17) -- 17kg weight loss.
+        elseif weight >= 70 then
+            player:Say("My body feel weak")
+            nutrition:setWeight(weight - 15) -- 15kg weight loss.
+        elseif weight >= 60 then
+            player:Say("My body feel weak . . .")
+            nutrition:setWeight(weight - 14) -- 14kg weight loss.
+        elseif weight >= 40 then
+            player:Say("My body resists luckily.")
+            nutrition:setWeight(weight - 13) -- 13kg weight loss.
+        else
+            player:Say("I can't breathe")
+            player:setHealth(0)
+            return -- Exit function as player is dead
+        end
 
+        -- Apply common effects for survivors (weight >= 40)
+        bodyDamage:RestoreToFullHealth() 
+		stats:add(CharacterStat.INTOXICATION, 100);
+		stats:set(CharacterStat.ENDURANCE, endurance - 0.55) -- Lungs
 
+		-- 哮喘情况下触发流血效果
+		-- In case of Asthmatic trait, trigger bleeding effect
+        if player.getCharacterTraits():get(CharacterTrait.ASTHMATIC) and ZombRand(100) <= 33 then
+            bodyDamage:ReduceGeneralHealth(80) -- Take damage
+            player:Say("Blood in my nose")
+			stats:set(CharacterStat.ENDURANCE, endurance - 0.25)
+        end
 
-it = inv:FindAndReturn("MC.Cura");
-    if it then
-    
-	inv:Remove("Cura"); -- Se remueve el item Cura.
-	if borracho < 20 then				
-		if pwg >= 100 then  -- Peso corporal mayor a 100
-			getPlayer():Say("I need survive");	
-			getPlayer():getNutrition():setWeight(pwg - 19) -- Perdida de 19kg de peso.
+		local hasBraveTrait = player.getCharacterTraits():get(CharacterTrait.DESENSITIZED) or not player.getCharacterTraits():get(CharacterTrait.BRAVE)
+        if hasBraveTrait then
+			stats:set(CharacterStat.PANIC, panic + 120) -- Panic
+			stats:set(CharacterStat.BOREDOM, -25)
+        end
 
-			getPlayer():getBodyDamage():RestoreToFullHealth();  -- <------ Full Health (it will be update later)
+        if not player.getCharacterTraits():get(CharacterTrait.IRON_GUT) then 
+			stats:set(CharacterStat.HUNGER, 50)
+            player:Say("My stomach hurts")
+        end
 
-			getPlayer():getStats():setDrunkenness(getPlayer():getStats():getDrunkenness() + 100);  
-			getPlayer():getStats():setEndurance(getPlayer():getStats():getEndurance() - 0.55);
-
-			if getPlayer():HasTrait("Asthmatic") then -- Si se tiene Asma
-				if ZombRand( 100 ) <= 33 then	      -- 33% chance 		
-					getPlayer():getBodyDamage():ReduceGeneralHealth(80);  --resultar dañado		
-					getPlayer():Say("Blood in my nose");	
-					getPlayer():getStats():setEndurance(getPlayer():getStats():getEndurance() - 0.25);				  
-				end
-			end		
-		end
-		
-	if pwg < 100 then -- Menos que 100 KG
-		if pwg >= 80 then  -- Mayor o igual a 80 KG
-			getPlayer():Say("My body feel really weak");	
-			getPlayer():getNutrition():setWeight(pwg - 17) 
-
-			local BD = player:getBodyDamage();
-			local BPs = BD:getBodyParts();
-			-----------------------------------------------------------------------------------------------------
-			getPlayer():getBodyDamage():RestoreToFullHealth();  -- <------ Full Health (it will be update later)
-			-----------------------------------------------------------------------------------------------------
-				
-			--for i=0, BPs:size()-1 do -- por cada... elemento bodypart, dañado.... -1 osea si tienes 10 dañados sera 9 veces partiendo desde 0.
-
-			--end
-
-			getPlayer():getStats():setDrunkenness(getPlayer():getStats():getDrunkenness() + 100); 
-			getPlayer():getStats():setEndurance(getPlayer():getStats():getEndurance() - 0.55); --Pulmones	
-
-			if getPlayer():HasTrait("Asthmatic") then
-				if  ZombRand( 100 ) <= 33 then
-					getPlayer():getBodyDamage():ReduceGeneralHealth(80);		
-					getPlayer():Say("Oh no, headache");	
-				    getPlayer():getStats():setEndurance(getPlayer():getStats():getEndurance() - 0.25);				  
-				end
-			end		
-				
-		end
-	end
-	
-	
-	if pwg < 80 then  -- Menor que 80 KG
-		if pwg >= 70 then -- Mayor que 70 KG
-			getPlayer():Say("My body feel weak");	
-			getPlayer():getNutrition():setWeight(pwg - 15) -- Perderas 15 Kilos
-
-			-----------------------------------------------------------------------------------------------------
-			getPlayer():getBodyDamage():RestoreToFullHealth();  -- <------ Full Health (it will be update later)
-			-----------------------------------------------------------------------------------------------------
-			
-	        getPlayer():getStats():setDrunkenness(getPlayer():getStats():getDrunkenness() + 100); 				
-		    getPlayer():getStats():setEndurance(getPlayer():getStats():getEndurance() - 0.55);
-
-			if getPlayer():HasTrait("Asthmatic") then
-				if ZombRand( 100 ) <= 33 then
-				  getPlayer():getBodyDamage():ReduceGeneralHealth(80);		
-		          getPlayer():Say("I dont feel so good");
-		          getPlayer():getStats():setEndurance(getPlayer():getStats():getEndurance() - 0.25);			  
-				end
-			end				
-		end
-	end
-		
-	if pwg < 70 then -- Menor que 70 KG
-		if pwg >= 60 then -- Mayor que o igual a 60 KG
-			getPlayer():Say("My body feel weak . . .");
-			getPlayer():getNutrition():setWeight(pwg - 14) -- Perderas 15 Kilos
-
-			-----------------------------------------------------------------------------------------------------
-			getPlayer():getBodyDamage():RestoreToFullHealth();  -- <------ Full Health (it will be update later)
-			-----------------------------------------------------------------------------------------------------
-			
-			getPlayer():getStats():setDrunkenness(getPlayer():getStats():getDrunkenness() + 100); 
-			getPlayer():getStats():setEndurance(getPlayer():getStats():getEndurance() - 0.55);	
-				
-			if getPlayer():HasTrait("Asthmatic") then
-				if ZombRand( 100 ) <= 33 then
-				getPlayer():getBodyDamage():ReduceGeneralHealth(80);		
-				getPlayer():Say("breathe is hard");
-				getPlayer():getStats():setEndurance(getPlayer():getStats():getEndurance() - 0.25);				  
-				end
-			end		
-		end
-	end
-		
-	if pwg < 60 then 
-		if pwg >= 40 then -- Si tienes 60 a 40 de peso 
-			getPlayer():Say("My body resists luckily.");
-			getPlayer():getNutrition():setWeight(pwg - 13) -- Perderas 13 kg
-
-			-----------------------------------------------------------------------------------------------------
-			getPlayer():getBodyDamage():RestoreToFullHealth();  -- <------ Full Health (it will be update later)
-			-----------------------------------------------------------------------------------------------------
-			
-		    getPlayer():getStats():setDrunkenness(getPlayer():getStats():getDrunkenness() + 100); 
-		    getPlayer():getStats():setEndurance(getPlayer():getStats():getEndurance() - 0.55);
-		
-			if getPlayer():HasTrait("Asthmatic") then
-				if ZombRand( 100 ) <= 33 then
-					getPlayer():getBodyDamage():ReduceGeneralHealth(80);		
-					getPlayer():Say("breathe is hard");
-		            getPlayer():getStats():setEndurance(getPlayer():getStats():getEndurance() - 0.25);				  
-				end
-			end		
-		end
-	end
-	
-	if pwg < 40 then 
-				getPlayer():Say("I can't breathe");
-				getPlayer():setHealth(0);
-	end
-		
-	if getPlayer():HasTrait("Desensitized") == false then
-		if getPlayer():HasTrait("Brave") == false then	
-		getPlayer():getStats():setPanic(getPlayer():getStats():getPanic() + 120); -- Susto
-		getPlayer():getStats():setBoredom(-25);  
-		end
-	end
-	
-	
-	if getPlayer():HasTrait("Iron Gut") == false then  -- Si No tienes Estomago fuerte
-	getPlayer():getStats():setHunger(50);
-	getPlayer():Say("My stomach hurts");				
-	end	
-
-
-	elseif borracho >= 20 then
-	
-		if ZombRand( 100 ) <= 33 then
-		getPlayer():getStats():setDrunkenness(0)
-		getPlayer():Say("medicine and Alcohol doesn't get along");
-		getPlayer():setHealth(0);
-		elseif ZombRand( 67 ) <= 33 then
-		getPlayer():getStats():setDrunkenness(0)
-		getPlayer():Say("Pain and agony");
-		elseif ZombRand( 34 ) <= 33 then
-		getPlayer():getStats():setDrunkenness(0)
-		getPlayer():Say("i cant hear anything,something was totally wrong");
-			if getPlayer():HasTrait("Deaf") == false then
-			getPlayer():getTraits():add("Deaf");
-			end
-		elseif ZombRand (10) <= 11 then --SIEMPRE
-				getPlayer():getNutrition():setWeight(pwg - 1) -- Perderas 13 kg
-			-----------------------------------------------------------------------------------------------------
-			getPlayer():getBodyDamage():RestoreToFullHealth();  -- <------ Full Health (it will be update later)
-			-----------------------------------------------------------------------------------------------------
-				
-
-				getPlayer():getStats():setDrunkenness(getPlayer():getStats():getDrunkenness() + 100); 
-				getPlayer():getStats():setEndurance(getPlayer():getStats():getEndurance() - 0.55);	
-		end	
-	end
-
-
-	
-end
-  
-
+	-- 在醉酒状态下服药产生的严重后果，33% 概率死亡、33% 概率疼痛、33% 概率耳聋
+	-- In case of high drunkenness when taking medicine, 33% chance of death, 33% chance of pain, 33% chance of deafness
+    elseif drunk >= 20 then
+        getPlayer():getStats():set(CharacterStat.INTOXICATION, 0.0)
+        if ZombRand(100) <= 33 then
+            player:Say("medicine and Alcohol doesn't get along")
+            player:setHealth(0)
+        elseif ZombRand(67) <= 33 then
+            player:Say("Pain and agony")
+        elseif ZombRand(34) <= 33 then
+            player:Say("i cant hear anything,something was totally wrong")
+            if not player.getCharacterTraits():get(CharacterTrait.DEAF) then
+                player.getCharacterTraits():set(CharacterTrait.DEAF, true)
+            end
+        else -- ALWAYS executes if previous conditions fail
+            nutrition:setWeight(weight - 1)
+            bodyDamage:RestoreToFullHealth()
+			stats:add(CharacterStat.INTOXICATION, 100)
+			stats:set(CharacterStat.ENDURANCE, endurance - 0.55)
+        end
+    end
 end
 
 function Itemcool2()
@@ -432,6 +332,20 @@ local player2 = getPlayer();
 	
 end
 
-Events.OnZombieDead.Add(ZombDropextra);
-Events.OnPlayerUpdate.Add(Itemcool);
+local function doCuraMenu(player, context, items)
+    local item = nil
+    for _, v in ipairs(items) do
+        if not instanceof(v, "InventoryItem") then
+            item = v.items[1]
+        else
+            item = v
+        end
+    end
 
+    if item:getType() == "Cura" then
+        context:addOption("Try to cure infection...", item, onItemUse, player)
+    end
+end
+
+Events.OnZombieDead.Add(ZombDropextra);
+Events.OnFillInventoryObjectContextMenu.Add(doCuraMenu);
