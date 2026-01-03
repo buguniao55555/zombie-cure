@@ -1,0 +1,5 @@
+Sandbox_EN = {
+    Sandbox_ZombieCure = "Zombie Cure Medical Cocktail",
+    Sandbox_DropChance = "Cure Drop Chance (0-1000)",
+    Sandbox_DropChance_Tooltip = "Set the chance to find the cure on zombies.\n\nRange: 0 to 1000\nDefault: 5 (representing 0.5%)\nMaximum: 1000 (representing 100%)",
+}

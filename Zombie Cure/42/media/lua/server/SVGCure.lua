@@ -89,31 +89,40 @@ function onItemUse()
 end
 
 
-local function ZombDropextra(zombie)
-local player2 = getPlayer();
-
-    if (ZombRand(1000) <= 5) then
-        if (ZombRand(6) == 5) then
-        zombie:getInventory():AddItem("Antibiotics")
-        --getPlayer():Say("6");
-        elseif (ZombRand(5) == 4) then
-        zombie:getInventory():AddItem("ZombieCure.ZombieCureMed1")
-        --getPlayer():Say("5");
-        elseif (ZombRand(4) == 3) then
-        --getPlayer():Say("4");
-        zombie:getInventory():AddItem("ZombieCure.ZombieCureMed2") 
-        elseif (ZombRand(3) == 2) then
-        --getPlayer():Say("3");
-        zombie:getInventory():AddItem("ZombieCure.ZombieCureMed3")
-        elseif (ZombRand(2) == 1) then
-        --getPlayer():Say("2");
-        zombie:getInventory():AddItem("ZombieCure.ZombieCureMed4")
-        elseif (0 == 0) then
-        --getPlayer():Say("1");
-        zombie:getInventory():AddItem("ZombieCure.ZombieCureMed5")
-        end
+local dropItems = {
+    "Antibiotics",
+    "ZombieCure.ZombieCureMed1",
+    "ZombieCure.ZombieCureMed2",
+    "ZombieCure.ZombieCureMed3",
+    "ZombieCure.ZombieCureMed4",
+    "ZombieCure.ZombieCureMed5",
+}
+local function onZombieDeadDropMeds(zombie)
+    local currentThreshold = SandboxVars.ZombieCure.DropChance
+    currentThreshold = math.min(currentThreshold, 1000)
+    currentThreshold = math.max(currentThreshold, 0)
+    local player = getPlayer()
+    local dropChance = ZombRand(0, 1000)
+    if isDebugEnabled() then
+        -- Debug mode: increase drop rate for testing
+        dropChance = 0
+        currentThreshold = 1000
     end
-    
+
+    if dropChance > currentThreshold then
+        return
+    end
+
+    if dropChance > 5 then
+        return
+    end
+
+    local randomIndex = ZombRand(1, #dropItems)
+    local selectedItemType = dropItems[randomIndex]
+    local item = instanceItem(selectedItemType)
+    local inv = zombie:getInventory()
+    inv:AddItem(item)
+    sendAddItemToContainer(inv, item)
 end
 
 local function doCuraMenu(player, context, items)
@@ -131,5 +140,5 @@ local function doCuraMenu(player, context, items)
     end
 end
 
-Events.OnZombieDead.Add(ZombDropextra);
+Events.OnZombieDead.Add(onZombieDeadDropMeds);
 Events.OnFillInventoryObjectContextMenu.Add(doCuraMenu);

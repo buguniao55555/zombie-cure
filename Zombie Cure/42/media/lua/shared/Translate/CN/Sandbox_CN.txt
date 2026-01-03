@@ -1,0 +1,5 @@
+Sandbox_CN = {
+    Sandbox_ZombieCure = "抗僵尸病毒鸡尾酒",
+    Sandbox_DropChance = "解药掉落几率 (0-1000)",
+    Sandbox_DropChance_Tooltip = "设置僵尸身上发现解药的概率。\n\n范围: 0 到 1000\n默认值: 5 (代表 0.5%)\n最大值: 1000 (代表 100%)",
+}
