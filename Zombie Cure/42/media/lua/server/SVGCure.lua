@@ -131,5 +131,7 @@ local function doCuraMenu(player, context, items)
     end
 end
 
-Events.OnZombieDead.Add(onZombieDeadDropMeds);
+if isServer() then
+    Events.OnZombieDead.Add(onZombieDeadDropMeds);
+end
 Events.OnFillInventoryObjectContextMenu.Add(doCuraMenu);
