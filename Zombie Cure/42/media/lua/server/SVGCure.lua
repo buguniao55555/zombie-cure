@@ -91,6 +91,7 @@ end
 
 local dropItems = {
     "Antibiotics",
+    "Antibiotics",
     "ZombieCure.ZombieCureMed1",
     "ZombieCure.ZombieCureMed2",
     "ZombieCure.ZombieCureMed3",
@@ -108,7 +109,7 @@ local function onZombieDeadDropMeds(zombie)
         return
     end
 
-    local randomIndex = ZombRand(1, #dropItems)
+    local randomIndex = ZombRand(1, (#dropItems + 1))
     local selectedItemType = dropItems[randomIndex]
     local item = instanceItem(selectedItemType)
     local inv = zombie:getInventory()
