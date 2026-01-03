@@ -103,17 +103,8 @@ local function onZombieDeadDropMeds(zombie)
     currentThreshold = math.max(currentThreshold, 0)
     local player = getPlayer()
     local dropChance = ZombRand(0, 1000)
-    if isDebugEnabled() then
-        -- Debug mode: increase drop rate for testing
-        dropChance = 0
-        currentThreshold = 1000
-    end
 
     if dropChance > currentThreshold then
-        return
-    end
-
-    if dropChance > 5 then
         return
     end
 
