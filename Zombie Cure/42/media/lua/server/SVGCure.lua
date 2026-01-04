@@ -3,7 +3,7 @@
 -- Original mod by Erdato
 -- Also thanks to Nolan Ritchie. i took some lines from one of his code.
 
-
+local random_instance = newrandom()
 
 function onItemUse()
     local player = getPlayer()
@@ -48,7 +48,7 @@ function onItemUse()
 
 		-- 哮喘情况下触发流血效果
 		-- In case of Asthmatic trait, trigger bleeding effect
-        if player:getCharacterTraits():get(CharacterTrait.ASTHMATIC) and ZombRand(100) <= 33 then
+        if player:getCharacterTraits():get(CharacterTrait.ASTHMATIC) and random_instance:random(0, 99) <= 33 then
             bodyDamage:ReduceGeneralHealth(80) -- Take damage
             player:Say(getText("IGUI_ZombieCure_Say_BloodNose"))
             stats:set(CharacterStat.ENDURANCE, endurance - 0.25)
@@ -69,12 +69,12 @@ function onItemUse()
     -- In case of high drunkenness when taking medicine, 33% chance of death, 33% chance of pain, 33% chance of deafness
     elseif drunk >= 20 then
         getPlayer():getStats():set(CharacterStat.INTOXICATION, 0.0)
-        if ZombRand(100) <= 33 then
+        if random_instance:random(100) <= 33 then
             player:Say(getText("IGUI_ZombieCure_Say_AlcoholBad"))
             player:setHealth(0)
-        elseif ZombRand(67) <= 33 then
+        elseif random_instance:random(67) <= 33 then
             player:Say(getText("IGUI_ZombieCure_Say_PainAgony"))
-        elseif ZombRand(34) <= 33 then
+        elseif random_instance:random(34) <= 33 then
             player:Say(getText("IGUI_ZombieCure_Say_DeafError"))
             if not player:getCharacterTraits():get(CharacterTrait.DEAF) then
                 player:getCharacterTraits():set(CharacterTrait.DEAF, true)
@@ -90,8 +90,7 @@ end
 
 
 local dropItems = {
-    "Antibiotics",
-    "Antibiotics",
+    "Base.Antibiotics",
     "ZombieCure.ZombieCureMed1",
     "ZombieCure.ZombieCureMed2",
     "ZombieCure.ZombieCureMed3",
@@ -103,16 +102,20 @@ local function onZombieDeadDropMeds(zombie)
     currentThreshold = math.min(currentThreshold, 1000)
     currentThreshold = math.max(currentThreshold, 0)
     local player = getPlayer()
-    local dropChance = ZombRand(0, 1000)
+    local dropChance = random_instance:random(0, 1000)
 
     if dropChance > currentThreshold then
         return
     end
 
-    local randomIndex = ZombRand(1, (#dropItems + 1))
+    local randomIndex = random_instance:random(1, #dropItems)
     local selectedItemType = dropItems[randomIndex]
     local item = instanceItem(selectedItemType)
     local inv = zombie:getInventory()
+    if inv == nil then
+        return
+    end
+
     inv:AddItem(item)
     sendAddItemToContainer(inv, item)
 end
@@ -132,7 +135,7 @@ local function doCuraMenu(player, context, items)
     end
 end
 
-if isServer() then
+if ((not (getWorld():getGameMode() == "Multiplayer")) or isServer()) then
     Events.OnZombieDead.Add(onZombieDeadDropMeds);
 end
 Events.OnFillInventoryObjectContextMenu.Add(doCuraMenu);
