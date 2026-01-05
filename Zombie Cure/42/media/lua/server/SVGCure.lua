@@ -90,7 +90,7 @@ end
 
 
 local dropItems = {
-    "base.Antibiotics",
+    "Base.Antibiotics",
     "ZombieCure.ZombieCureMed1",
     "ZombieCure.ZombieCureMed2",
     "ZombieCure.ZombieCureMed3",
@@ -114,8 +114,11 @@ local function onZombieDeadDropMeds(zombie)
 
     print("[ZombieCure][SERVER] item = ", item)
 
-    zombie:getInventory():AddItem(item)
-    sendAddItemToContainer(zombie:getInventory(), item)
+    local inv = zombie:getInventory()
+    if inv then
+        inv:AddItem(item)
+        -- sendAddItemToContainer(inv, item)
+    end
 end
 
 
