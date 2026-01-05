@@ -89,6 +89,24 @@ function onItemUse()
 end
 
 
+
+
+local function addCureMenu(player, context, items)
+    local item = nil
+    for _, v in ipairs(items) do
+        if not instanceof(v, "InventoryItem") then
+            item = v.items[1]
+        else
+            item = v
+        end
+    end
+
+    if item:getType() == "ZombieCureAntidote" then
+        context:addOption(getText("ContextMenu_ZombieCure_TryCure"), item, onItemUse, player)
+    end
+end
+
+
 local dropItems = {
     "Base.Antibiotics",
     "ZombieCure.ZombieCureMed1",
@@ -121,23 +139,9 @@ local function onZombieDeadDropMeds(zombie)
     end
 end
 
-
-local function doCuraMenu(player, context, items)
-    local item = nil
-    for _, v in ipairs(items) do
-        if not instanceof(v, "InventoryItem") then
-            item = v.items[1]
-        else
-            item = v
-        end
-    end
-
-    if item:getType() == "ZombieCureAntidote" then
-        context:addOption(getText("ContextMenu_ZombieCure_TryCure"), item, onItemUse, player)
-    end
-end
-
+-- guard, only add this event when in SP mode or server side in MP mode
 if ((not (getWorld():getGameMode() == "Multiplayer")) or isServer()) then
     Events.OnZombieDead.Add(onZombieDeadDropMeds);
 end
-Events.OnFillInventoryObjectContextMenu.Add(doCuraMenu);
+
+Events.OnFillInventoryObjectContextMenu.Add(addCureMenu);
