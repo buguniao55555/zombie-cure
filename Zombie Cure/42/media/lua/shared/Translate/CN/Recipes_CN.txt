@@ -1,6 +1,6 @@
 Recipes_CN = 
 {
-    Recipe_ZombieCure_TypeA = "制作医疗鸡尾酒-方案A",
-    Recipe_ZombieCure_TypeB = "制作医疗鸡尾酒-方案B",
-    Recipe_ZombieCure_TypeC = "制作医疗鸡尾酒-方案C",
+    Recipe_ZombieCureTypeA = "制作医疗鸡尾酒-方案A",
+    Recipe_ZombieCureTypeB = "制作医疗鸡尾酒-方案B",
+    Recipe_ZombieCureTypeC = "制作医疗鸡尾酒-方案C",
 }

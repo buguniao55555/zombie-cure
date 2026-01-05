@@ -1,6 +1,6 @@
 Recipes_EN = 
 {
-    Recipe_ZombieCure_TypeA = "Craft Medical Cocktail Type A",
-    Recipe_ZombieCure_TypeB = "Craft Medical Cocktail Type B",
-    Recipe_ZombieCure_TypeC = "Craft Medical Cocktail Type C",
+    Recipe_ZombieCureTypeA = "Craft Medical Cocktail Type A",
+    Recipe_ZombieCureTypeB = "Craft Medical Cocktail Type B",
+    Recipe_ZombieCureTypeC = "Craft Medical Cocktail Type C",
 }
