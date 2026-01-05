@@ -6,58 +6,58 @@ module ZombieCure
         Weight          = 0.01,
         DisplayName     = Medical Cocktail,
         Icon            = SVGCure,
-        ItemType        = Normal,
+        ItemType        = base:normal,
         DisplayCategory = FirstAid,
     }
     
     /* All following items are medicines for crafting the cure */
     item ZombieCureMed1
     {
-        Weight          = 0.02,
+        Weight          = 0.01,
         ThirstChange    = 10,
         DisplayName     = Tenofovir,
         Icon            = SVGTenofovir,
-        ItemType        = Normal, 
+        ItemType        = base:normal, 
         DisplayCategory = FirstAid,
     }
 
     item ZombieCureMed2
     {
-        Weight          = 0.02,
+        Weight          = 0.01,
         ThirstChange    = 10,
         DisplayName     = Aciclovir,
         Icon            = SVGAciclovir,
-        ItemType        = Normal,     
+        ItemType        = base:normal,     
         DisplayCategory = FirstAid,
     }   
 
     item ZombieCureMed3
     {
-        Weight          = 0.02,
+        Weight          = 0.01,
         ThirstChange    = 10,
         DisplayName     = Zanamivir,
         Icon            = SVGZanamivir,
-        ItemType        = Normal, 
+        ItemType        = base:normal, 
         DisplayCategory = FirstAid,
     }       
 
     item ZombieCureMed4
     {
-        Weight          = 0.02,
+        Weight          = 0.01,
         ThirstChange    = 10,
         DisplayName     = Oseltamivir,
         Icon            = SVGOseltamivir,
-        ItemType        = Normal, 
+        ItemType        = base:normal, 
         DisplayCategory = FirstAid,
     }       
 
     item ZombieCureMed5
     {
-        Weight          = 0.02,
+        Weight          = 0.01,
         ThirstChange    = 10,
         DisplayName     = Zidovudine,
         Icon            = SVGZidovudine,
-        ItemType        = Normal, 
+        ItemType        = base:normal, 
         DisplayCategory = FirstAid,
     }
     

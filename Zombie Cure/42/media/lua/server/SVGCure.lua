@@ -90,7 +90,7 @@ end
 
 
 local dropItems = {
-    "Base.Antibiotics",
+    "base.Antibiotics",
     "ZombieCure.ZombieCureMed1",
     "ZombieCure.ZombieCureMed2",
     "ZombieCure.ZombieCureMed3",
@@ -111,14 +111,13 @@ local function onZombieDeadDropMeds(zombie)
     local randomIndex = random_instance:random(1, #dropItems)
     local selectedItemType = dropItems[randomIndex]
     local item = instanceItem(selectedItemType)
-    local inv = zombie:getInventory()
-    if inv == nil then
-        return
-    end
 
-    inv:AddItem(item)
-    sendAddItemToContainer(inv, item)
+    print("[ZombieCure][SERVER] item = ", item)
+
+    zombie:getInventory():AddItem(item)
+    sendAddItemToContainer(zombie:getInventory(), item)
 end
+
 
 local function doCuraMenu(player, context, items)
     local item = nil
